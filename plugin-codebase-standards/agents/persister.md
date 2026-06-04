@@ -24,5 +24,3 @@ Determine applicable type, then use matching reference:
 Output only cleaned content for target file.
 
 ## References
-[persist-code-standards.md](../skills/discover-codebase-standards/references/persist-code-standards.md)
-[persist-questions-and-answers.md](../skills/discover-codebase-standards/references/persist-questions-and-answers.md)
