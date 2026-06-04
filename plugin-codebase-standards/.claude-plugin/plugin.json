@@ -1,0 +1,8 @@
+{
+  "name": "codebase-standards",
+  "description": "Auto-discover and apply repo-specific coding standards, design patterns, tooling, and workflows.",
+  "version": "1.0.0",
+  "author": {
+    "name": "tfg"
+  }
+}
