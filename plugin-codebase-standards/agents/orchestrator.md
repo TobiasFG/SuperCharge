@@ -20,11 +20,13 @@ User invokes discovery with one of:
 
 ## Process
 
-1. **Setup**: Create `.temp-codebase-standards/` directory at repo root
+1. **Setup**: 
+   - Create `.temp-codebase-standards/` directory at repo root
+   - Copy folder from plugin-codebase-standards `src/codebase-standards` to project	`.claude/skills/<skill-name>/SKILL.md`
 2. **Gather Prerequisites**: Ask user for codebase context via questionnaire
 3. **Record**: Save answers to `.temp-codebase-standards/general-information.md`
 4. **Discover**: Spawn discoverer subagent for each discovery category topic
-5. **Route**: Spawn one persister subagent per file to persist
+5. **Route**: Spawn one persister subagent per file in `.temp-codebase-standards/`
 
 ## Questionnaire
 
@@ -57,29 +59,7 @@ Spawn discoverer subagent for each category's topics.
 - **Security and Privacy**: Auth, authorization, PII handling
 - **Testing and Quality**: Test strategies, mocks, coverage
 
-## Output
-
-Discoverers create findings files in `.temp-codebase-standards/`:
-- `general-information.md` — Questionnaire answers (from prerequisite step)
-- `[category]/[discoverer-findings].md` — Findings per discovery category topic (created by each discoverer)
-
-When discovery complete, route findings to persisters:
-- Spawn one persister subagent per file (including `general-information.md`)
-- Each persister handles one file from `.temp-codebase-standards/`
-
-## Discoverer Subagent Workflow
-
-1. Orchestrator spawns one discoverer per category topic (parallel preferred)
-2. Each discoverer explores repo for its category topic
-3. Discoverer writes findings to `[category]/[discoverer-findings].md` in `.temp-codebase-standards/`
-
-## Persister Subagent Workflow
-
-1. Orchestrator spawns one persister per file (parallel preferred)
-2. Each persister reads its assigned file from `.temp-codebase-standards/`
-3. Persister routes findings to appropriate location(s) in codebase docs
-
-## Payload Formats
+## Subagent Payload Formats
 
 ### Discoverer Payload
 
