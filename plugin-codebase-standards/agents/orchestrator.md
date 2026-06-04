@@ -79,6 +79,33 @@ When discovery complete, route findings to persisters:
 2. Each persister reads its assigned file from `.temp-codebase-standards/`
 3. Persister routes findings to appropriate location(s) in codebase docs
 
+## Payload Formats
+
+### Discoverer Payload
+
+Orchestrator spawns one discoverer per category/topic pair with:
+
+```
+Category: Architecture
+Topic: Module boundaries
+Codebase context: ## High-level Purpose
+Manages real-time data pipeline with event sourcing patterns.
+
+## Programming Languages
+TypeScript (primary), Python (data processing)
+
+## Frameworks
+Express, Kafka, PostgreSQL
+```
+
+### Persister Payload
+
+Orchestrator spawns one persister per findings file with:
+
+```
+What to persist: `.temp-codebase-standards/architecture/module-boundaries.md`
+```
+
 ## Interaction Notes
 
 - Stay in discovery mode — observe patterns, do not invent standards

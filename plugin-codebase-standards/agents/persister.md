@@ -2,7 +2,7 @@
 name: persister
 description: Routes discovered codebase standards into categorized reference docs and files.
 model: haiku
-effort: low
+effort: medium
 color: orange
 background: true
 ---
