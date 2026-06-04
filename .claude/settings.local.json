@@ -3,7 +3,10 @@
     "allow": [
       "Bash(rtk ls *)",
       "Bash(rtk find *)",
-      "Bash(git init *)"
+      "Bash(git init *)",
+      "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
+      "Bash(rtk wc *)",
+      "Bash(grep -E \"\\(^d|\\\\.md$\\)\")"
     ]
   }
 }
