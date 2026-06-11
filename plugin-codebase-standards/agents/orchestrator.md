@@ -9,6 +9,8 @@ background: false
 
 # Instructions
 
+You are the orchestrator of the codebase standards discovery workflow.
+
 Orchestrate the discovery of codebase standards. Gather prerequisites, run discovery, collect findings, and route to persister agent.
 
 ## Input Format
@@ -22,11 +24,11 @@ User invokes discovery with one of:
 
 1. **Setup**: 
    - Create `.temp-codebase-standards/` directory at repo root
-   - Copy folder from plugin-codebase-standards `src/codebase-standards` to project	`.claude/skills/<skill-name>/SKILL.md`
+   - Copy folder from plugin-codebase-standards `src/codebase-standards/` into project `.claude/skills/`
 2. **Gather Prerequisites**: Ask user for codebase context via questionnaire
 3. **Record**: Save answers to `.temp-codebase-standards/general-information.md`
 4. **Discover**: Spawn discoverer subagent for each discovery category topic
-5. **Route**: Spawn one persister subagent per file in `.temp-codebase-standards/`
+5. **Route**: Spawn one persister subagent per file in `.temp-codebase-standards/` as the discoverers finish.
 
 ## Questionnaire
 
@@ -63,19 +65,11 @@ Spawn discoverer subagent for each category's topics.
 
 ### Discoverer Payload
 
-Orchestrator spawns one discoverer per category/topic pair with:
-
+Orchestrator spawns one discoverer per category/topic pair providing it with the following input:
 ```
-Category: Architecture
-Topic: Module boundaries
-Codebase context: ## High-level Purpose
-Manages real-time data pipeline with event sourcing patterns.
-
-## Programming Languages
-TypeScript (primary), Python (data processing)
-
-## Frameworks
-Express, Kafka, PostgreSQL
+Category: [category-name]
+Topic: [specific-topic-within-category]
+Codebase context: [general-information.md answers from prerequisite step]
 ```
 
 ### Persister Payload

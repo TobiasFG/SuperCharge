@@ -12,7 +12,7 @@ Apply repo standards while working in this codebase. Treat the persisted standar
 1. Determine which reference files in `references/` are relevant to the task.
 2. Read only the relevant reference files.
 3. Apply repo standards over generic best practices.
-4. If relevant standards are missing, stale, or unclear, say so before making assumptions.
+4. If relevant standards are missing, stale, or unclear, stop work and ask over making assumptions.
 
 ## References
 
