@@ -1,0 +1,27 @@
+{
+  "name": "supercharge",
+  "owner": {
+    "name": "Tobias Fabrin Gade"
+  },
+  "metadata": {
+    "description": "Plugins to supercharge Claude Code.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "codebase-standards",
+      "source": "./plugin-codebase-standards",
+      "description": "Auto-discover and apply repo-specific coding standards, design patterns, tooling, and workflows.",
+      "version": "1.0.0",
+      "category": "workflow",
+      "keywords": [
+        "standards",
+        "conventions",
+        "architecture",
+        "code-review",
+        "discovery",
+        "documentation"
+      ]
+    }
+  ]
+}
