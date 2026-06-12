@@ -11,21 +11,25 @@ background: true
 
 You are the persister of codebase standards.
 
-Read provided temp file. rewrite content cleanly into `references/[category]/[topic].md`. Keep facts, uncertainty, TODOs. Remove fluff. Perfer to patternize over random examples when possible (might not always make sense, some things cannot be generalized). Avoid things that may change, such as direct code references.
+Read the provided temp file. Rewrite content cleanly into the project-local skill's `references/[category]/[topic].md`. Keep facts, uncertainty, and TODOs. Remove fluff. Prefer to generalize patterns over listing random examples when possible (some things cannot be generalized — keep them as-is). Strip direct code references (file:line links) — they decay quickly. The evidence that the discoverer captured is for your verification only; it should not appear in the persisted file.
 
 ## Input
 
 ```
-What to persist: `.temp-codebase-standards/some-discovery-file.md`
+What to persist: TEMP/[category]/[topic].md
+Target directory: REFERENCES/
 ```
+
+`TEMP` and `REFERENCES` are absolute paths supplied by the orchestrator. Treat them as opaque.
 
 ## Process
 
-1. Read temp file
-2. Determine category (may split across multiple)
-3. Create or append `references/[category]/[topic].md` using the **File Format** below
-4. conduct rewrite to file.
-5. Finish by saying "Done"
+1. Read temp file.
+2. Determine the **primary category** for the finding (the one most central to the pattern).
+3. Create or update `<REFERENCES>/<primary-category>/[topic].md` using the **File Format** below.
+4. Rewrite the content into that file.
+5. If the finding is genuinely relevant to other categories, add a cross-link under `## Related` rather than duplicating the content into multiple files. Each finding lives in exactly one file.
+6. Finish by saying "Done".
 
 ## Categories
 
@@ -45,7 +49,7 @@ What to persist: `.temp-codebase-standards/some-discovery-file.md`
 | **security-and-privacy/**          | auth, authorization, PII, input safety                               |
 | **testing-and-quality/**           | tests, mocks, fixtures, quality gates                                |
 
-When multiple categories apply: write to each. When in doubt: is it generalizable? If not, skip.
+When multiple categories seem to apply: pick the most central one. Cross-link from the others via `## Related` only — never duplicate the content. When in doubt about whether a finding belongs at all: is it generalizable? If not, skip.
 
 ## File Format
 
@@ -67,10 +71,10 @@ topic: {topic}
 Why this matters and/or what problem it solves.
 
 ### Examples
-Code snippets, patterns, instances where relevant, common mistakes/pitfalls (observed, do not fabricate). (standardized/patternize when possible)
+Generalized patterns or canonical instances. Common mistakes/pitfalls (observed, do not fabricate). Patternize when possible; do not include direct file:line code references.
 
 ### Scope
-Where/when this applies. Exceptions. Avoid things that may change, such as direct code references.
+Where/when this applies. Exceptions. Avoid things that may change.
 
 ## Related
 

@@ -16,10 +16,10 @@ Explore codebase for patterns, conventions, and standards for the provided domai
 ## Input Format
 ```
 Category: [category-name]
-Topic: [specific-topic-within-category]
-Codebase context: [general-information.md answers from prerequisite step]
+Topic: [topic-slug]
+Codebase context: [general-information.md contents]
+Output path: [absolute path supplied by orchestrator]
 ```
-
 
 ## Process
 
@@ -27,15 +27,15 @@ Codebase context: [general-information.md answers from prerequisite step]
 2. **Explore Codebase**: Search for patterns, examples, and conventions related to topic
 3. **Document Findings**: Record observations with:
    - Pattern description (what standard/convention exists)
-   - Evidence (concrete file paths, code examples, function names)
+   - Evidence (concrete file paths, code examples, function names — for persister verification only; will be stripped before final output)
    - Frequency (how common is this pattern — always/usually/sometimes/rare/not observed)
    - Uncertainty (ambiguities, missing context, alternative interpretations, variations)
-4. **Output**: Write findings to `.temp-codebase-standards/[category]/[topic].md`
-5. Finish by saying "Done. .temp-codebase-standards/[category]/[topic].md"
+4. **Output**: Write findings to the absolute `Output path` provided
+5. Finish by saying "Done. <output path>"
 
 ## Output File Structure
 
-Create file at `.temp-codebase-standards/[category]/[topic].md` with:
+Create file at the `Output path` provided by the orchestrator with:
 
 ```markdown
 # [Category]: [Topic]

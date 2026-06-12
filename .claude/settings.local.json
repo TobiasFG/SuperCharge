@@ -6,7 +6,11 @@
       "Bash(git init *)",
       "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
       "Bash(rtk wc *)",
-      "Bash(grep -E \"\\(^d|\\\\.md$\\)\")"
+      "Bash(grep -E \"\\(^d|\\\\.md$\\)\")",
+      "Bash(rtk read *)",
+      "Bash(rtk git *)",
+      "Bash(grep -v '^$')",
+      "Bash(rtk grep *)"
     ]
   }
 }

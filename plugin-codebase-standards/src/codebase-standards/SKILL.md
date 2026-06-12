@@ -1,18 +1,26 @@
 ---
 name: codebase-standards
-description: describes repo standards, design patterns, tooling, and development workflows. use when writing, reviewing, refactoring, or answering questions about code in this codebase.
+description: Repo-specific coding standards, design patterns, tooling, and development workflows. Use whenever writing, modifying, or reviewing code in this repository.
 ---
 
 # Codebase standards
 
-Apply repo standards while working in this codebase. Treat the persisted standards docs as the source of truth.
+Apply repo standards while working in this codebase. Treat the persisted standards docs as the source of truth — they override generic best practices.
 
 ## Workflow
 
-1. Determine which reference files in `references/` are relevant to the task.
+1. Identify which reference files in `references/` are relevant to the current task.
 2. Read only the relevant reference files.
 3. Apply repo standards over generic best practices.
-4. If relevant standards are missing, stale, or unclear, stop work and ask over making assumptions.
+4. If relevant standards are missing, stale, or unclear, stop work and ask the user — do not assume.
+
+## Guard: empty references
+
+If `references/` does not exist or is empty, the standards have not been discovered yet. Stop and tell the user:
+
+> No codebase standards are documented yet. Run the `discover-codebase-standards` skill (e.g. "discover codebase standards") to populate `references/`.
+
+Do not invent standards to fill the gap.
 
 ## References
 
